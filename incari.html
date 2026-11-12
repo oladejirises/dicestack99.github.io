@@ -110,30 +110,4 @@
             inputSequence += val;
             if (inputSequence.includes(targetSequence)) {
                 launchClient();
-            }
-        }
-
-        function clearCalc() {
-            document.getElementById("display").innerText = "0";
-            inputSequence = "";
-        }
-
-        function evaluateCalc() {
-            try {
-                let display = document.getElementById("display");
-                display.innerText = eval(display.innerText);
-            } catch (e) {
-                document.getElementById("display").innerText = "Error";
-            }
-        }
-
-        function launchClient() {
-            document.getElementById("calculator-ui").style.display = "none";
-            let iframe = document.getElementById("game-container");
-            iframe.style.display = "block";
-            // Set your unblocked target source here
-            iframe.src = "https://yee.pages.dev/";
-        }
-    </script>
-</body>
-</html>
+            
