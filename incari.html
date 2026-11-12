@@ -14,13 +14,19 @@
             background: #1e1e1e;
             font-family: Arial, sans-serif;
         }
+
         #calculator-ui {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            color: #fff;
+            height: 100vh;
+            width: 100vw;
+            background: #1e1e1e;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
         .calc-box {
             background: #2d2d2d;
@@ -56,21 +62,53 @@
             cursor: pointer;
         }
         .calc-btn:hover { background: #555; }
-        #game-container {
+
+        #game-wrapper {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            border: none;
+            background-color: #000;
             z-index: 999;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #melon-splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            opacity: 1;
+            transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        #melon-logo {
+            max-width: 600px;
+            width: 75%;
+            height: auto;
+        }
+
+        .fade-away {
+            opacity: 0 !important;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Disguised Calculator UI (Press sequence 0024 or click display to unlock) -->
     <div id="calculator-ui">
         <div class="calc-box">
             <div class="calc-display" id="display">0</div>
@@ -95,8 +133,12 @@
         </div>
     </div>
 
-    <!-- Hidden Game Container Frame -->
-    <iframe id="game-container" src="" credentialless allow="cross-origin-isolated; fullscreen; pointer-lock"></iframe>
+    <div id="game-wrapper">
+        <div id="melon-splash">
+            <img src="melonclient.png" alt="MelonClient Logo" id="melon-logo">
+        </div>
+        <iframe src="https://yee.pages.dev/" title="Melon Client" allow="fullscreen; pointer-lock; cross-origin-isolated"></iframe>
+    </div>
 
     <script>
         let inputSequence = "";
@@ -110,4 +152,35 @@
             inputSequence += val;
             if (inputSequence.includes(targetSequence)) {
                 launchClient();
-            
+            }
+        }
+
+        function clearCalc() {
+            document.getElementById("display").innerText = "0";
+            inputSequence = "";
+        }
+
+        function evaluateCalc() {
+            try {
+                let display = document.getElementById("display");
+                display.innerText = eval(display.innerText);
+            } catch (e) {
+                document.getElementById("display").innerText = "Error";
+            }
+        }
+
+        function launchClient() {
+            document.getElementById("calculator-ui").style.display = "none";
+            document.getElementById("game-wrapper").style.display = "block";
+
+            const splash = document.getElementById('melon-splash');
+            setTimeout(() => {
+                splash.classList.add('fade-away');
+                setTimeout(() => {
+                    splash.remove();
+                }, 1200);
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
