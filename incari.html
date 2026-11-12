@@ -70,37 +70,15 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #0b0b0b;
+            background-color: #000;
             z-index: 999;
-            color: #fff;
-            text-align: center;
-            padding-top: 40px;
         }
-        .client-panel {
-            background: #161616;
-            border: 2px solid #0f0;
-            display: inline-block;
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 30px;
-            max-width: 450px;
-            width: 90%;
-            box-shadow: 0 0 20px rgba(0,255,0,0.2);
-        }
-        .action-btn {
-            background: #0f0;
-            color: #000;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: bold;
+
+        iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 15px;
-            text-decoration: none;
-            display: inline-block;
         }
-        .action-btn:hover { background: #0c0; }
     </style>
 </head>
 <body>
@@ -130,12 +108,8 @@
     </div>
 
     <div id="game-wrapper">
-        <h1 style="color: #0f0; font-family: monospace;">Incari Client // Secure Portal</h1>
-        <div class="client-panel">
-            <p style="color: #ccc; font-size: 15px; line-height: 1.4;">DNS lookup intercepted by network policy. Click below to launch the unblocked offline client container:</p>
-            <a href="https://eaglercraft.com" target="_blank" class="action-btn">Launch Client Instance</a>
-            <p style="margin-top: 25px;"><button onclick="location.reload()" style="background:none; border:none; color:#888; text-decoration:underline; cursor:pointer;">Lock Vault / Reset Calculator</button></p>
-        </div>
+        <!-- Direct embedded container frame -->
+        <iframe src="https://eaglercraft.com/mc/1.8.8/" title="Incari Client" allow="fullscreen; pointer-lock; cross-origin-isolated"></iframe>
     </div>
 
     <script>
