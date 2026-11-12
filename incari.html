@@ -74,17 +74,18 @@
             z-index: 999;
             color: #fff;
             text-align: center;
-            padding-top: 50px;
+            padding-top: 40px;
         }
-        .dashboard {
+        .client-panel {
             background: #161616;
             border: 2px solid #0f0;
             display: inline-block;
-            padding: 40px;
+            padding: 30px;
             border-radius: 12px;
-            max-width: 500px;
+            margin-top: 30px;
+            max-width: 450px;
             width: 90%;
-            box-shadow: 0 0 25px rgba(0,255,0,0.2);
+            box-shadow: 0 0 20px rgba(0,255,0,0.2);
         }
         .action-btn {
             background: #0f0;
@@ -95,7 +96,7 @@
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            margin: 10px;
+            margin-top: 15px;
             text-decoration: none;
             display: inline-block;
         }
@@ -129,13 +130,11 @@
     </div>
 
     <div id="game-wrapper">
-        <h1 style="color: #0f0; font-family: monospace;">Incari Client // Secure Hub</h1>
-        <div class="dashboard">
-            <p style="color: #ccc; font-size: 15px; line-height: 1.5;">Network filter interception bypassed. Select a stable connection option below:</p>
-            
-            <a href="https://eaglercraft.com" target="_blank" class="action-btn">Open Main Client Portal</a>
-            <br>
-            <button onclick="location.reload()" style="background:none; border:none; color:#888; text-decoration:underline; cursor:pointer; margin-top:20px;">Lock Vault / Reset Calculator</button>
+        <h1 style="color: #0f0; font-family: monospace;">Incari Client // Secure Portal</h1>
+        <div class="client-panel">
+            <p style="color: #ccc; font-size: 15px; line-height: 1.4;">DNS lookup intercepted by network policy. Click below to launch the unblocked offline client container:</p>
+            <a href="https://eaglercraft.com" target="_blank" class="action-btn">Launch Client Instance</a>
+            <p style="margin-top: 25px;"><button onclick="location.reload()" style="background:none; border:none; color:#888; text-decoration:underline; cursor:pointer;">Lock Vault / Reset Calculator</button></p>
         </div>
     </div>
 
